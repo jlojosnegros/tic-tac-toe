@@ -1,6 +1,6 @@
-package ticTacToe.views
+package views
 
-import ticTacToe.models.Game
+import models.Game
 
 object TurnView {
 

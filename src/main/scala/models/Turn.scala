@@ -1,4 +1,4 @@
-package ticTacToe.models
+package models
 
 class Turn(value: Int = 0) {
 

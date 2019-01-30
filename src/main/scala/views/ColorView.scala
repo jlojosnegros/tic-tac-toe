@@ -1,4 +1,4 @@
-package ticTacToe.views
+package views
 
 object ColorView {
 

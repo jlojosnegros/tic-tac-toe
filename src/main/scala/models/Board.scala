@@ -1,4 +1,4 @@
-package ticTacToe.models
+package models
 
 class Board(rows: List[List[Int]] = List(
   List(-1, -1, -1),

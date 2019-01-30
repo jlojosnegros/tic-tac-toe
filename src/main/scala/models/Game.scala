@@ -1,4 +1,4 @@
-package ticTacToe.models
+package models
 
 class Game(turn: Turn = new Turn, board: Board = new Board()) {
 

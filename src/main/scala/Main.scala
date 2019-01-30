@@ -1,7 +1,5 @@
-package ticTacToe
-
-import ticTacToe.models.Game
-import ticTacToe.views.{GameView, CoordinateView, GestorIO}
+import models.Game
+import views.{GameView, CoordinateView, GestorIO}
 
 object Main {
 

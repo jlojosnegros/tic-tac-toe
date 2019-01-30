@@ -1,4 +1,4 @@
-package ticTacToe.models
+package models
 
 class Coordinate(row:Int, column:Int) {
 

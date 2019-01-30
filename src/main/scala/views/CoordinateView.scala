@@ -1,6 +1,6 @@
-package ticTacToe.views
+package views
 
-import ticTacToe.models.Coordinate
+import models.Coordinate
 
 object CoordinateView {
 

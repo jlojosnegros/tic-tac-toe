@@ -1,4 +1,4 @@
-package ticTacToe.models
+package models
 
 import org.scalatest.FunSuite
 
