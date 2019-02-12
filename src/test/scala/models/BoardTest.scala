@@ -97,4 +97,10 @@ class BoardTest extends FunSuite {
       List(1, -1, 0))).isTicTacToe)
   }
 
+  test("not tic tac toe") {
+    assert(!new Board(List(
+      List(1, 1, 0),
+      List(0, -1, -1),
+      List(-1, 0, 1))).isTicTacToe)
+  }
 }
