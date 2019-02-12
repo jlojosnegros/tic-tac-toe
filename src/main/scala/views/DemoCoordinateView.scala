@@ -7,27 +7,29 @@ object DemoCoordinateView extends CoordinateTrait {
 
   val generator: Random = new scala.util.Random(System.currentTimeMillis())
 
-  def generate_ (currentPosition: Game) : Coordinate = {
-    val (row, col) = (generator.nextInt(3), generator.nextInt(3))
-    currentPosition.canMoveTo(new Coordinate(row, col)) match {
-      case true => new Coordinate(row, col)
-      case false => generate_(currentPosition)
+  def generateRandomCoordinate_ : Coordinate = new Coordinate(generator.nextInt(3), generator.nextInt(3))
+
+  def generateCoordinateToMoveTo_(currentPosition: Game) : Coordinate = {
+    val tryingToMoveTo = generateRandomCoordinate_
+    currentPosition.canMoveTo(tryingToMoveTo) match {
+      case true => tryingToMoveTo
+      case false => generateCoordinateToMoveTo_(currentPosition)
     }
   }
 
-  def generate2_(currentPosition: Game) : Coordinate = {
-    val (row, col) = (generator.nextInt(3), generator.nextInt(3))
-    currentPosition.canMoveFrom(new Coordinate(row, col)) match {
-      case true => new Coordinate(row, col)
-      case false => generate2_(currentPosition)
+  def generateCoordinateToMoveFrom_(currentPosition: Game) : Coordinate = {
+    val tryingToMoveFrom = generateRandomCoordinate_
+    currentPosition.canMoveFrom(tryingToMoveFrom) match {
+      case true => tryingToMoveFrom
+      case false => generateCoordinateToMoveFrom_(currentPosition)
     }
   }
   override def read(currentPosition: Game): Coordinate = {
-    generate_(currentPosition)
+    generateCoordinateToMoveTo_(currentPosition)
   }
 
   override def readFromTo(currentPosition: Game): (Coordinate, Coordinate) = {
-    (generate2_(currentPosition), generate_(currentPosition))
+    (generateCoordinateToMoveFrom_(currentPosition), generateCoordinateToMoveTo_(currentPosition))
   }
 }
 
