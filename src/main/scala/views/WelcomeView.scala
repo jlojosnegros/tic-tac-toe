@@ -9,7 +9,7 @@ object WelcomeView {
     GestorIO.write("\t\t2 => CPU vs CPU.\n")
     GestorIO.readInt("Choose Option [1]: ") match {
       case 2 => DemoCoordinateView
-      case _ => CoordinateView
+      case _ => HumanCoordinateView
     }
   }
 }
