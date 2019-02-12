@@ -108,8 +108,10 @@ class Board(rows: List[List[Int]] = List(
 
   def isEmpty(coordinate: Coordinate) : Boolean = getColor(coordinate) == -1
 
-  def canMoveTo(coordinate: Coordinate, player: Int) : Boolean =
-    (!isComplete && isEmpty(coordinate)) || (isComplete && getColor(coordinate)!=player)
+  def canMoveTo(coordinate: Coordinate, player: Int) : Boolean = isEmpty(coordinate)
+
+  def canMoveFrom(coordinate: Coordinate, player: Int) : Boolean =
+    !isEmpty(coordinate) && getColor(coordinate) == player
 
   override def equals(that: Any): Boolean =
     that match {

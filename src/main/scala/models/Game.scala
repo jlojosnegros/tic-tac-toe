@@ -28,4 +28,6 @@ class Game(turn: Turn = new Turn, board: Board = new Board()) {
 
   def canMoveTo(coordinate: Coordinate) : Boolean = board_.canMoveTo(coordinate,take)
 
+  def canMoveFrom(coordinate: Coordinate) : Boolean = board_.canMoveFrom(coordinate,take)
+
 }

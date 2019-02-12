@@ -9,4 +9,8 @@ object CoordinateView extends CoordinateTrait {
       val column = GestorIO.readInt("Columna? [1-3]")
       new Coordinate(row-1, column-1)
     }
+
+  override def readFromTo(currentPosition: Game): (Coordinate, Coordinate) = {
+    (read(currentPosition), read(currentPosition))
+  }
 }

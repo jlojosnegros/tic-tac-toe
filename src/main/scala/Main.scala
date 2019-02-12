@@ -12,7 +12,8 @@ object Main {
       if (!game.isComplete){
         game = game.put(coordinateView.read(game))
       } else {
-        game = game.move(coordinateView.read(game), coordinateView.read(game))
+        val (from, to ) = coordinateView.readFromTo(game)
+        game = game.move(from, to)
       }
       GameView.write(game)
     } while (!game.isTicTacToe)

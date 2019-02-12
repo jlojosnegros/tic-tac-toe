@@ -6,4 +6,5 @@ trait CoordinateTrait {
 
   def read(currentPosition: Game ): Coordinate
 
+  def readFromTo(currentPosition: Game) : (Coordinate, Coordinate)
 }
