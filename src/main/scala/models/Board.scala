@@ -1,5 +1,9 @@
 package models
 
+import scala.concurrent.{Await, Future}
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration._
+
 class Board(rows: List[List[Int]] = List(
   List(-1, -1, -1),
   List(-1, -1, -1),
@@ -103,7 +107,20 @@ class Board(rows: List[List[Int]] = List(
       coordinates.length == 3 && equals(directions) && !directions.contains("")
     }
 
-    isTicTacToe(0) || isTicTacToe(1)
+    val isTicTacToe4Player0Future = Future {
+      isTicTacToe(0)
+    }
+
+    val isTicTacToe4Player1Future = Future {
+      isTicTacToe(1)
+    }
+
+    val isTicTacToeResult: Future[Boolean] = for {
+      isTicTacToe4Player0 <- isTicTacToe4Player0Future
+      isTicTacToe4Player1 <- isTicTacToe4Player1Future
+    } yield isTicTacToe4Player0 || isTicTacToe4Player1
+
+    Await.result(isTicTacToeResult, 1 second)
   }
 
   def isEmpty(coordinate: Coordinate) : Boolean = getColor(coordinate) == -1
