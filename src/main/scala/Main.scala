@@ -1,5 +1,7 @@
+import actors.{OPlayer, StartMessage, XPlayer}
 import models.Game
 import views.{GameView, GestorIO, WelcomeView}
+import akka.actor.{ActorSystem, Props}
 
 object Main {
 
@@ -19,4 +21,19 @@ object Main {
     } while (!game.isTicTacToe)
     GestorIO.write("... pero has perdido")
   }
+}
+
+object TicTacToe extends App {
+  val system = ActorSystem("system")
+
+  val coordinateView = WelcomeView.readGameType
+
+  val oPlayer = system.actorOf(Props(new OPlayer(coordinateView)), name = "O")
+  val xPlayer = system.actorOf(Props(new XPlayer(oPlayer,coordinateView)), name = "X")
+
+  var game = new Game
+
+  GameView.write(game)
+
+  xPlayer ! StartMessage(game)
 }
