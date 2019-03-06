@@ -12,8 +12,10 @@ class OPlayer(coordinateView: CoordinateTrait ) extends Player(coordinateView) w
       if (newGame.isTicTacToe) {
         GestorIO.write("OPlayer: gane!\n")
         sender ! IsTicTacToeMessage
-        println("terminando oplayer...")
-        context.stop(self)
+
+        //println("terminando oplayer")
+        context.system.terminate()
+        //println("terminado oplayer...")
 
       } else {
         sender ! YourTurn(newGame)
@@ -21,8 +23,8 @@ class OPlayer(coordinateView: CoordinateTrait ) extends Player(coordinateView) w
     }
     case IsTicTacToeMessage => {
       GestorIO.write("OPlayer: he perdido\n")
-      context.stop(self)
-      println("terminado oplayer perdiendo")
+      context.system.terminate()
+      //println("terminado oplayer perdiendo")
     }
   }
 }

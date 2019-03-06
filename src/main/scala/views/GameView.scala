@@ -5,7 +5,7 @@ import models.Game
 object GameView {
 
   def write(game:Game) = {
-    BoardView.write(game)
     TurnView.write(game)
+    BoardView.write(game)
   }
 }
