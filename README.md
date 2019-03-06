@@ -13,12 +13,8 @@ características:
 Se ha utlizado [este](https://github.com/jlojosnegros/tic-tac-toe) repositorio de github para subir la solucion.
 En el apartado de [releases](https://github.com/jlojosnegros/tic-tac-toe/releases) del repositorio pueden verse tres `tags`, cada una con la solucion de uno de los pasos pedidos en el enunciado.
 
-HITO_ONE
-: Ampliar la funcionalidad para permitir, a través de un menú al arranque de la aplicación, jugar manual (usuarios introduciendo datos) y automáticamente ('demo' generando coordenadas aleatorias)
-
-HITO_DOS
-: Paralelizar el cálculo de las Tres en Raya de ambos jugadores, mientras que en la versión disponible se realiza secuencialmente
-
-HITO_THREE
-: Distribuir la solución con distintos actores: uno por jugador y otro coordinados (en un esquema similar a la solución del Ping-Pong)
-
+|TAG|Ejercicio que soluciona|
+|:---:|:---:|
+|HITO_ONE|Ampliar la funcionalidad para permitir, a través de un menú al arranque de la aplicación, jugar manual (usuarios introduciendo datos) y automáticamente ('demo' generando coordenadas aleatorias)|
+|HITO_DOS|Paralelizar el cálculo de las Tres en Raya de ambos jugadores, mientras que en la versión disponible se realiza secuencialmente|
+|HITO_THREE|Distribuir la solución con distintos actores: uno por jugador y otro coordinados (en un esquema similar a la solución del Ping-Pong)|
