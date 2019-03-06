@@ -18,9 +18,7 @@ class XPlayer(oPlayer: ActorRef,  coordinateView : CoordinateTrait ) extends Pla
       if (newGame.isTicTacToe) {
         GestorIO.write("XPlayer: gane!\n")
         sender ! IsTicTacToeMessage
-        //println("terminando xplayer ...")
         context.system.terminate()
-        //println("terminado xplayer...")
       } else {
         sender ! YourTurn(newGame)
       }
@@ -29,7 +27,6 @@ class XPlayer(oPlayer: ActorRef,  coordinateView : CoordinateTrait ) extends Pla
     case IsTicTacToeMessage => {
       GestorIO.write("XPlayer: he perdido\n")
       context.system.terminate()
-      //println("terminado xplayer perdiendo")
     }
   }
 }
